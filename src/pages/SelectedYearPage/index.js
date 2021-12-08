@@ -6,7 +6,8 @@ import YearlyWinnersList from "../../components/YearlyWinnersList";
 
 export default function SelectedYearPage() {
     let { year } = useParams();
-    let { state: { selectedDriver } } = useLocation();
+    let { state } = useLocation();
+    let selectedDriver = state? state.selectedDriver : undefined
 
     const [winnersData, setWinnersData] = useState();
     useEffect(() => {
