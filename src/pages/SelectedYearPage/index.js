@@ -20,7 +20,7 @@ export default function SelectedYearPage() {
 
     return (
         <>
-            <Header className="subHeading">Winners Season {year}</Header>
+            <h1>Winners Season {year}</h1>
             {winnersData ? <YearlyWinnersList data={winnersData} selectedDriver={selectedDriver} />
                 : <div>loading...</div>}
         </>

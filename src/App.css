@@ -10,13 +10,9 @@
 
 .navHeader {
   background-color: red;
-  margin-bottom: 2% !important;
-}
-
-.subHeading {
-  font-size: 200% !important;
 }
 
 .highlightedItem {
-  background-color: lightyellow !important;
+  background-color: lightyellow !important; 
+  /* Utility class */
 }

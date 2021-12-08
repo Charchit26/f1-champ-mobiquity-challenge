@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react'
 import { List, Card } from 'semantic-ui-react'
 
@@ -16,7 +17,7 @@ export default function YearlyWinnersList({data, selectedDriver}) {
             <Card
               key={round}
               fluid
-              className={(selectedDriver && Driver.givenName === selectedDriver.givenName) ? "highlightedItem" : ""}
+              className={classNames({"highlightedItem" : (selectedDriver && Driver.givenName === selectedDriver.givenName)})}
               header={`${Driver.givenName} ${Driver.familyName}`}
               meta={`Race Number ${round} - ${raceName}`}
             />

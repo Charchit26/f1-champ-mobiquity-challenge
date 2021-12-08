@@ -17,7 +17,7 @@ export default function HomePage() {
 
     return(
         <>
-            <Header className="subHeading">World Champions</Header>
+            <h1>World Champions</h1>
             {winnersData ? <WorldChampionsList data={winnersData} /> : <div>loading...</div>}
         </>
     )
