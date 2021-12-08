@@ -1,0 +1,4 @@
+export const SESSION_STORAGE_BASE_KEY = "mobiquity"
+export const SESSION_STORAGE_ALL_WINNERS_KEY= `${SESSION_STORAGE_BASE_KEY}-allWinners`
+
+export const SESSION_STORAGE_SELECTED_YEAR= `${SESSION_STORAGE_BASE_KEY}-selectedYear`
