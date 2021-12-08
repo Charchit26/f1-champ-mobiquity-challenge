@@ -3,7 +3,9 @@
 This is a single page application that
 presents a list that shows the F1 world champions starting from 2005 until now.
 
-Clicking on an item shows the list of the winners for every race for the selected year
+Clicking on an item shows the list of the winners for every race for the selected year.
+
+All this information is loaded using an asynchronous API call. During the duration of the API call it shows a `loading...` text to greet the user.
 
 It is using [Ergast Developer API](http://ergast.com/mrd/) for this purpose.
 
@@ -47,3 +49,22 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Architectural Info/Decisions
+
+This app has been developed keeping in mind the readability and scalibility for future.
+It is using `react-router` to route between different pages - Home Page and Selected Year Page which are contained in a folder `pages`.
+This has been done to keep a level of separation between page level components and other re-usable components.
+Frameworks like Next.JS and Gatsby use the similar structure.
+
+A `components` folder has been added to contain all other re-usable components which (if needed later) can be further classified into atoms, molecules... etc 
+as per atomic design principles.
+
+An `api` folder contains all the logic for API calls which this app can make. This has been done in order to segregate the async logic and separation of concerns. It uses URLs from a constant file to reduce refactor need in future.
+We are using `axios` to make fetch calls. This makes it easier to make the calls as well as configure them later when required.
+A `caching` concept has also been introduced in the API call with the help of session storage of client's browser.
+This will cache the responses of all the API calls being made by the user in their own browser which can later be used when the same API call is made. This kind of caching is safe to use in this case as the past racing data is unlikely to change.
+
+It is using `react-testing-library` for unit tests along with `jest`. 
+
+It is also using [sematic-ui](https://react.semantic-ui.com/) for the generic react coponents like Lists and Cards. This makes it easy to develop an app with some consistent UX.
+On top of that it has also got a few CSS classes where required. These styles are stored in a single css file as of now for the sake of simplicity, which can later be divisioned into their own files as per the component classification.
