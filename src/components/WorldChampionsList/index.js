@@ -13,14 +13,16 @@ export default function WorldChampionsList({ data }) {
       <List data-testid="listItem" animated relaxed verticalAlign='middle'>
         {StandingsTable?.StandingsLists.map(({ season, DriverStandings }) => {
           const { Driver } = DriverStandings[0];
-          return(
-            <Link key={season} to={`/year/${season}`} state={{selectedDriver: Driver}} >
-              <Card
-                fluid
-                header={`${Driver.givenName} ${Driver.familyName}`}
-                meta={season}
-              />
-            </Link>
+          return (
+            <List.Item>
+              <Link key={season} to={`/year/${season}`} state={{ selectedDriver: Driver }} >
+                <Card
+                  fluid
+                  header={`${Driver.givenName} ${Driver.familyName}`}
+                  meta={season}
+                />
+              </Link>
+            </List.Item>
           )
         })
         }
